@@ -2029,4 +2029,30 @@ class RestController extends \CI_Controller
             exit;
         }
     }
+
+    /**
+     * Header Method
+     *
+     * Return extended HTTP Header for incoming request
+     * RFC2616 (HTTP 1.1) States that Header must be case-insensitive
+     * thus we make everything lowercase....
+     *
+     * @param string $name The header to fetch
+     */
+    public function _header($name) {
+        $name = strtolower($name);
+
+        $headers = getallheaders();
+
+        foreach ($headers as $header => $value) {
+            $header = strtolower($header);
+            $headersRFC2616[$header] = $value;
+        }
+
+        if (isset($headersRFC2616[$name])) {
+            return $headersRFC2616[$name];
+        } else {
+            return FALSE;
+        }
+    }
 }
