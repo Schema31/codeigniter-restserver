@@ -34,7 +34,7 @@ Note that you will need to copy `rest.php` to your `config` directory (e.g. `app
 Step 1: Add this to your controller (should be before any of your code)
 
 ```php
-use chriskacerguis\RestServer\RestController;
+use Schema31\RestServer\RestController;
 ```
 
 Step 2: Extend your controller
@@ -54,7 +54,7 @@ Here is a basic example. This controller, which should be saved as `Api.php`, ca
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-use chriskacerguis\RestServer\RestController;
+use Schema31\RestServer\RestController;
 
 class Api extends RestController {
 
